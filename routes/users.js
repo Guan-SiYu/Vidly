@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const express = require('express')
 const router = express.Router()
 
-router.get('/api/', async (req, res) => {
+router.post('/api/', async (req, res) => {
     //使用joi验证请求的内容，如果请求中的name等属性不合法就返回400错误
     const { error } = validate(req.body)
     if (error) return res.status(400).send(error.details[0].message)
